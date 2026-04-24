@@ -7,13 +7,47 @@
 
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* TOP RIGHT JOIN BUTTON */
+    .join-btn {
+      position: fixed;
+      top: 15px;
+      right: 15px;
+      background-color: black;
+      color: white;
+      border: 2px solid white;
+      padding: 10px 16px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      text-decoration: none;
+      border-radius: 8px;
+      z-index: 9999;
+      transition: 0.2s ease;
+    }
+
+    .join-btn:hover {
+      background-color: white;
+      color: black;
+    }
+  </style>
 </head>
 
 <body>
 
+  <!-- JOIN BUTTON (CHANGE LINK HERE) -->
+  <a class="join-btn" href="joincarsonsmp.github.io" target="_blank">
+    Join the Carson SMP
+  </a>
+
   <header>
     <h1>Carson SMP Games</h1>
-    <div class="subtitle">Updates daily! Suggest games <a href="https://docs.google.com/forms/d/e/1FAIpQLSe3_sbc6CRZuYDlBWvWJkabXiVyQ70CF6iRISkzowsqB4AxSQ/viewform?usp=sharing&ouid=105447127997926674664" target="_blank">here</a>!</div>
+    <div class="subtitle">
+      Updates daily! Suggest games 
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSe3_sbc6CRZuYDlBWvWJkabXiVyQ70CF6iRISkzowsqB4AxSQ/viewform?usp=sharing&ouid=105447127997926674664" target="_blank">
+        here
+      </a>!
+    </div>
   </header>
 
   <!-- GAME GRID -->
@@ -64,44 +98,9 @@
       <div class="game-title">Escape Road</div>
     </div>
 
-   <div class="game-card" onclick="openGame('https://pleasedropkickme.github.io/games/games/escaperoad2/escaperoad2.html')">
+    <div class="game-card" onclick="openGame('https://pleasedropkickme.github.io/games/games/escaperoad2/escaperoad2.html')">
       <img src="assets/escaperoad2.png">
       <div class="game-title">Eascape Road 2</div>
-    </div>
-
-   <div class="game-card" onclick="openGame('https://pleasedropkickme.github.io/games/games/coreball/coreball.html')">
-      <img src="assets/coreball.png">
-      <div class="game-title">Core Ball</div>
-    </div>
-
-   <div class="game-card" onclick="openGame('https://pleasedropkickme.github.io/games/games/bitlife/bitlife.html')">
-      <img src="assets/bitlife.png">
-      <div class="game-title">Bit Life</div>
-    </div>
-
-   <div class="game-card" onclick="openGame('https://pleasedropkickme.github.io/games/games/blockblast/blockblast.html')">
-      <img src="assets/blockblast.png">
-      <div class="game-title">Block Blast</div>
-    </div>
-
-   <div class="game-card" onclick="openGame('https://pleasedropkickme.github.io/games/games/retrobowl/retrobowl.html')">
-      <img src="assets/retrobowl.png">
-      <div class="game-title">Retro Bowl</div>
-    </div>
-
-   <div class="game-card" onclick="openGame('https://pleasedropkickme.github.io/games/games/retrobowlcollege/retrobowlcollege.html')">
-      <img src="assets/retrobowlcollege.png">
-      <div class="game-title">Retro Bowl College</div>
-    </div>
-
-   <div class="game-card" onclick="openGame('https://example.com')">
-      <img src="assets/game1.png">
-      <div class="game-title">game in progress!</div>
-    </div>
-
-   <div class="game-card" onclick="openGame('https://example.com')">
-      <img src="assets/game1.png">
-      <div class="game-title">game in progress!</div>
     </div>
 
   </div>
