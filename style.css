@@ -113,8 +113,11 @@ body {
   left: 24px;
   font-size: 32px;
   font-weight: 800;
-  color: #FFFFFF;
-  text-shadow: 0 3px 12px rgba(0,0,0,0.8);
+  color: #ffffff;
+  text-shadow:
+    0 0 6px rgba(0,0,0,1),
+    0 3px 12px rgba(0,0,0,1),
+    0 6px 24px rgba(0,0,0,0.9);
 }
 
 /* =======================
