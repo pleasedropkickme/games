@@ -1,11 +1,11 @@
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: Arial;
   background: #0f1115;
   color: white;
 }
 
-/* TOP BAR (Steam correct layout) */
+/* TOP BAR (Steam EXACT STYLE FIX) */
 .topbar {
   display: flex;
   justify-content: space-between;
@@ -28,10 +28,10 @@ body {
   color: #66c0f4;
 }
 
-/* NAV */
+/* BUTTONS (FIXED: NO UNDERLINE, STEAM STYLE) */
 .nav {
   display: flex;
-  gap: 12px;
+  gap: 14px;
 }
 
 .nav a {
@@ -59,7 +59,7 @@ body {
   width: 220px;
 }
 
-/* CAROUSEL */
+/* CAROUSEL (KEEPED BUT CLEANED) */
 .carousel {
   max-width: 1200px;
   margin: 20px auto;
@@ -96,42 +96,13 @@ body {
   text-shadow: 0 2px 12px rgba(0,0,0,0.8);
 }
 
-/* SECTIONS */
+/* SECTION TITLE */
 .section-title {
   max-width: 1200px;
   margin: 20px auto 10px;
   font-size: 18px;
   opacity: 0.75;
   padding: 0 12px;
-}
-
-/* FEATURED */
-.featured {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 14px;
-  max-width: 1200px;
-  margin: auto;
-  padding: 10px;
-}
-
-.featured-card {
-  background: #1b2838;
-  border-radius: 10px;
-  overflow: hidden;
-  text-decoration: none;
-  color: white;
-}
-
-.featured-card img {
-  width: 100%;
-  aspect-ratio: 16/9;
-  object-fit: cover;
-}
-
-.featured-card div {
-  padding: 12px;
-  font-size: 16px;
 }
 
 /* GRID (4 columns iPad) */
@@ -163,22 +134,10 @@ body {
   font-size: 15px;
 }
 
-/* UPDATES */
-.updates {
-  max-width: 1200px;
-  margin: auto;
-  padding: 12px;
-  opacity: 0.8;
-}
-
-/* iPad responsiveness */
+/* IPAD FIX */
 @media (max-width: 900px) {
   .grid {
     grid-template-columns: repeat(2, 1fr);
-  }
-
-  .featured {
-    grid-template-columns: 1fr;
   }
 
   .text {
