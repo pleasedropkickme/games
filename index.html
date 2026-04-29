@@ -17,7 +17,7 @@
 
     <div class="nav">
       <a href="/games/featured/">FEATURED</a>
-      <a href="/games/recents//">RECENTS</a>
+      <a href="/games/recents/">RECENTS</a>
       <a href="/games/allgames/">ALL</a>
     </div>
 
@@ -29,7 +29,7 @@
 
 </div>
 
-<!-- CAROUSEL (UNCHANGED IDEA, FIXED STYLE) -->
+<!-- CAROUSEL -->
 <div class="carousel" id="carousel">
 
   <a class="slide active" href="play.html?g=game1">
@@ -49,17 +49,17 @@
 
 </div>
 
-<!-- FEATURED (KEEP SIMPLE) -->
+<!-- FEATURED -->
 <div id="featured" class="section-title">Featured Games</div>
 
-<div class="grid">
+<div class="featured">
 
-  <a class="game" href="play.html?g=game1" data-name="Game One">
+  <a class="featured-card" href="play.html?g=game1" data-name="Game One">
     <img src="assets/testimage.png">
     <div>Game One (NEW)</div>
   </a>
 
-  <a class="game" href="play.html?g=game2" data-name="Game Two">
+  <a class="featured-card" href="play.html?g=game2" data-name="Game Two">
     <img src="assets/testimage.png">
     <div>Game Two</div>
   </a>
@@ -94,18 +94,48 @@
 </div>
 
 <script>
-/* SEARCH */
+/* =======================
+   SEARCH (STEAM STYLE FILTER MODE)
+======================= */
 document.getElementById("search").addEventListener("input", e => {
-  const val = e.target.value.toLowerCase();
+  const val = e.target.value.toLowerCase().trim();
 
-  document.querySelectorAll(".game").forEach(g => {
-    g.style.display = g.dataset.name.toLowerCase().includes(val)
-      ? "block"
-      : "none";
+  const carousel = document.getElementById("carousel");
+  const featured = document.getElementById("featured");
+
+  const games = document.querySelectorAll(".game");
+  const featuredCards = document.querySelectorAll(".featured-card");
+
+  if (val === "") {
+    // RESET VIEW
+    carousel.style.display = "block";
+    featured.style.display = "block";
+
+    games.forEach(g => g.style.display = "block");
+    featuredCards.forEach(f => f.style.display = "block");
+
+    return;
+  }
+
+  // SEARCH MODE (FOCUS ON GAMES ONLY)
+  carousel.style.display = "none";
+  featured.style.display = "none";
+
+  games.forEach(g => {
+    const name = g.dataset.name.toLowerCase();
+    g.style.display = name.includes(val) ? "block" : "none";
+  });
+
+  featuredCards.forEach(f => {
+    const name = f.dataset.name.toLowerCase();
+    f.style.display = name.includes(val) ? "block" : "none";
   });
 });
 
-/* CAROUSEL */
+
+/* =======================
+   CAROUSEL SWITCH
+======================= */
 let i = 0;
 const slides = document.querySelectorAll(".slide");
 
@@ -114,8 +144,9 @@ function show() {
   slides[i].classList.add("active");
   i = (i + 1) % slides.length;
 }
+
 show();
-setInterval(show, 4500);
+setInterval(show, 3500);
 </script>
 
 </body>
