@@ -1,11 +1,14 @@
 body {
   margin: 0;
-  font-family: Arial;
+  font-family: Arial, sans-serif;
   background: #0f1115;
   color: white;
+  font-weight: 600;
 }
 
-/* TOP BAR (Steam EXACT STYLE FIX) */
+/* =======================
+   TOP BAR (STEAM STYLE)
+======================= */
 .topbar {
   display: flex;
   justify-content: space-between;
@@ -18,26 +21,26 @@ body {
 .left {
   display: flex;
   align-items: center;
-  gap: 22px;
+  gap: 20px;
 }
 
-/* GAME HUB */
 .logo {
   font-size: 20px;
-  font-weight: bold;
+  font-weight: 800;
   color: #66c0f4;
+  letter-spacing: 0.3px;
 }
 
-/* BUTTONS (FIXED: NO UNDERLINE, STEAM STYLE) */
 .nav {
   display: flex;
-  gap: 14px;
+  gap: 12px;
 }
 
 .nav a {
   text-decoration: none;
   color: #8f98a0;
   font-size: 15px;
+  font-weight: 600;
   padding: 6px 10px;
   border-radius: 4px;
   transition: 0.2s;
@@ -46,81 +49,149 @@ body {
 .nav a:hover {
   color: #66c0f4;
   background: rgba(102,192,244,0.08);
+  font-weight: 700;
 }
 
 /* SEARCH */
 .right input {
-  padding: 10px 14px;
-  border-radius: 6px;
+  padding: 11px 14px;
+  border-radius: 7px;
   border: none;
   background: #2a2f3a;
   color: white;
   font-size: 15px;
+  font-weight: 600;
   width: 220px;
 }
 
-/* CAROUSEL (KEEPED BUT CLEANED) */
+/* =======================
+   CAROUSEL (STEAM FEATURE BANNER)
+======================= */
 .carousel {
   max-width: 1200px;
-  margin: 20px auto;
+  margin: 24px auto;
   position: relative;
-  height: 320px;
+  height: 380px;
+  padding: 0 12px;
 }
 
 .slide {
   position: absolute;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   opacity: 0;
-  transition: opacity 0.6s ease;
+  transition: opacity 0.7s ease, transform 0.7s ease;
   text-decoration: none;
+  transform: scale(1.01);
 }
 
 .slide.active {
   opacity: 1;
+  transform: scale(1);
 }
 
 .slide img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 12px;
+  border-radius: 16px;
+  filter: brightness(0.9);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
+/* DARK OVERLAY FOR READABILITY */
+.slide::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.65),
+    rgba(0,0,0,0.1),
+    rgba(0,0,0,0)
+  );
+  pointer-events: none;
+}
+
+/* BIG FEATURE TEXT */
 .text {
   position: absolute;
-  bottom: 20px;
-  left: 20px;
+  bottom: 24px;
+  left: 24px;
   font-size: 30px;
-  font-weight: bold;
-  text-shadow: 0 2px 12px rgba(0,0,0,0.8);
+  font-weight: 700;
+  color: #66c0f4; /* Steam blue (original vibe) */
+  text-shadow: 0 3px 12px rgba(0,0,0,0.75);
+  max-width: 80%;
 }
 
-/* SECTION TITLE */
+/* =======================
+   SECTION TITLES
+======================= */
 .section-title {
   max-width: 1200px;
-  margin: 20px auto 10px;
-  font-size: 18px;
-  opacity: 0.75;
-  padding: 0 12px;
+  margin: 24px auto 12px;
+  font-size: 20px;
+  font-weight: 800;
+  opacity: 0.85;
+  padding: 0 14px;
 }
 
-/* GRID (4 columns iPad) */
+/* =======================
+   FEATURED SECTION
+======================= */
+.featured {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  max-width: 1200px;
+  margin: auto;
+  padding: 12px;
+}
+
+.featured-card {
+  background: #1b2838;
+  border-radius: 12px;
+  overflow: hidden;
+  text-decoration: none;
+  color: white;
+}
+
+.featured-card img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+}
+
+.featured-card div {
+  padding: 12px;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+/* =======================
+   GAME GRID (4 COLUMN IPAD)
+======================= */
 .grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 14px;
   max-width: 1200px;
   margin: auto;
-  padding: 10px;
+  padding: 12px;
 }
 
 .game {
   text-decoration: none;
   color: white;
   background: #1b2838;
-  border-radius: 10px;
+  border-radius: 12px;
   overflow: hidden;
+  transition: transform 0.2s;
+}
+
+.game:hover {
+  transform: scale(1.03);
 }
 
 .game img {
@@ -130,17 +201,32 @@ body {
 }
 
 .game div {
-  padding: 10px;
+  padding: 11px;
   font-size: 15px;
+  font-weight: 700;
 }
 
-/* IPAD FIX */
+/* =======================
+   IPAD RESPONSIVE
+======================= */
 @media (max-width: 900px) {
   .grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .featured {
+    grid-template-columns: 1fr;
+  }
+
+  .carousel {
+    height: 300px;
+  }
+
   .text {
-    font-size: 24px;
+    font-size: 26px;
+  }
+
+  .right input {
+    width: 170px;
   }
 }
