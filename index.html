@@ -3,55 +3,49 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>New Game Website</title>
+<title>Game Hub</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- TOP BAR -->
+<!-- TOP NAV -->
 <div class="topbar">
-  <div class="left">
-    <div class="logo">GAME HUB</div>
-    <div class="nav">
-      <span>GAMES</span>
-      <span>RECENT</span>
-      <span>UPDATES</span>
-    </div>
-  </div>
+  <div class="logo">GAME HUB</div>
 
-  <div class="right">
-    <input id="search" placeholder="Search games...">
+  <div class="nav">
+    <a href="index.html">Home</a>
+    <a href="#games">Games</a>
+    <a href="#updates">Updates</a>
   </div>
 </div>
 
 <!-- CAROUSEL -->
-<div class="carousel" id="carousel">
+<div class="carousel">
 
-  <a class="slide" href="play.html?g=game1">
+  <a class="slide active" href="play.html?g=game1" data-color="#66c0f4">
     <img src="assets/testimage.png">
     <div class="text">Game One (NEW)</div>
   </a>
 
-  <a class="slide" href="play.html?g=game2">
+  <a class="slide" href="play.html?g=game2" data-color="#ff6b6b">
     <img src="assets/testimage.png">
     <div class="text">Game Two</div>
   </a>
 
-  <a class="slide" href="play.html?g=game3">
+  <a class="slide" href="play.html?g=game3" data-color="#7CFF6B">
     <img src="assets/testimage.png">
     <div class="text">Game Three</div>
   </a>
 
 </div>
 
-<!-- SECTION -->
-<div class="section">Featured Games</div>
+<!-- GAMES -->
+<div id="games" class="section-title">Featured Games</div>
 
-<!-- GRID -->
 <div class="grid">
 
-  <a class="game" href="play.html?g=game1" data-name="Game One (NEW)">
+  <a class="game" href="play.html?g=game1" data-name="Game One">
     <img src="assets/testimage.png">
     <div>Game One (NEW)</div>
   </a>
@@ -61,9 +55,9 @@
     <div>Game Two</div>
   </a>
 
-  <a class="game" href="play.html?g=game3" data-name="Game Three (NEW)">
+  <a class="game" href="play.html?g=game3" data-name="Game Three">
     <img src="assets/testimage.png">
-    <div>Game Three (NEW)</div>
+    <div>Game Three</div>
   </a>
 
   <a class="game" href="play.html?g=game4" data-name="Game Four">
@@ -73,30 +67,26 @@
 
 </div>
 
+<!-- UPDATES -->
+<div id="updates" class="section-title">Updates</div>
+<div class="updates">
+  New games are being added regularly. Stay tuned.
+</div>
+
 <script>
-/* SEARCH */
-document.getElementById("search").addEventListener("input", e => {
-  const val = e.target.value.toLowerCase();
-
-  document.querySelectorAll(".game").forEach(g => {
-    g.style.display = g.dataset.name.toLowerCase().includes(val)
-      ? "block"
-      : "none";
-  });
-});
-
-/* CAROUSEL */
+/* CAROUSEL FADE */
 let i = 0;
 const slides = document.querySelectorAll(".slide");
 
 function show() {
-  slides.forEach(s => s.style.display = "none");
-  slides[i].style.display = "block";
+  slides.forEach(s => s.classList.remove("active"));
+  slides[i].classList.add("active");
   i = (i + 1) % slides.length;
 }
-
 show();
-setInterval(show, 3500);
+setInterval(show, 4000);
+
+/* SEARCH (optional future use) */
 </script>
 
 </body>
