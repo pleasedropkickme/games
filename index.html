@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Game Hub</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="left">
+    <div class="logo">GAME HUB</div>
+    <div class="nav">
+      <span>STORE</span>
+      <span>LIBRARY</span>
+      <span>COMMUNITY</span>
+    </div>
+  </div>
+
+  <div class="right">
+    <input id="search" placeholder="Search games...">
+  </div>
+</div>
+
+<!-- CAROUSEL -->
+<div class="carousel" id="carousel">
+
+  <a class="slide" href="play.html?g=game1">
+    <img src="assets/game1.png">
+    <div class="text">Game One (NEW)</div>
+  </a>
+
+  <a class="slide" href="play.html?g=game2">
+    <img src="assets/game2.png">
+    <div class="text">Game Two</div>
+  </a>
+
+  <a class="slide" href="play.html?g=game3">
+    <img src="assets/game3.png">
+    <div class="text">Game Three</div>
+  </a>
+
+</div>
+
+<!-- SECTION -->
+<div class="section">Featured Games</div>
+
+<!-- GRID -->
+<div class="grid">
+
+  <a class="game" href="play.html?g=game1" data-name="Game One (NEW)">
+    <img src="assets/game1.png">
+    <div>Game One (NEW)</div>
+  </a>
+
+  <a class="game" href="play.html?g=game2" data-name="Game Two">
+    <img src="assets/game2.png">
+    <div>Game Two</div>
+  </a>
+
+  <a class="game" href="play.html?g=game3" data-name="Game Three (NEW)">
+    <img src="assets/game3.png">
+    <div>Game Three (NEW)</div>
+  </a>
+
+  <a class="game" href="play.html?g=game4" data-name="Game Four">
+    <img src="assets/game4.png">
+    <div>Game Four</div>
+  </a>
+
+</div>
+
+<script>
+/* SEARCH */
+document.getElementById("search").addEventListener("input", e => {
+  const val = e.target.value.toLowerCase();
+
+  document.querySelectorAll(".game").forEach(g => {
+    g.style.display = g.dataset.name.toLowerCase().includes(val)
+      ? "block"
+      : "none";
+  });
+});
+
+/* CAROUSEL */
+let i = 0;
+const slides = document.querySelectorAll(".slide");
+
+function show() {
+  slides.forEach(s => s.style.display = "none");
+  slides[i].style.display = "block";
+  i = (i + 1) % slides.length;
+}
+
+show();
+setInterval(show, 3500);
+</script>
+
+</body>
+</html>
