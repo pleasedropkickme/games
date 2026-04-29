@@ -7,7 +7,7 @@ body {
 }
 
 /* =======================
-   TOP BAR (STEAM STYLE)
+   TOP BAR
 ======================= */
 .topbar {
   display: flex;
@@ -28,7 +28,6 @@ body {
   font-size: 20px;
   font-weight: 800;
   color: #66c0f4;
-  letter-spacing: 0.3px;
 }
 
 .nav {
@@ -58,12 +57,11 @@ body {
   background: #2a2f3a;
   color: white;
   font-size: 15px;
-  font-weight: 500;
   width: 220px;
 }
 
 /* =======================
-   CAROUSEL (FIXED — NO BOUNCE)
+   CAROUSEL (NO BOUNCE)
 ======================= */
 .carousel {
   max-width: 1200px;
@@ -94,7 +92,7 @@ body {
   filter: brightness(0.88);
 }
 
-/* DARK OVERLAY (STEAM STYLE FADE FEEL) */
+/* overlay */
 .slide::after {
   content: "";
   position: absolute;
@@ -106,10 +104,9 @@ body {
     rgba(0,0,0,0.15),
     rgba(0,0,0,0)
   );
-  pointer-events: none;
 }
 
-/* CAROUSEL TEXT (BLUE STEAM ACCENT) */
+/* carousel text */
 .text {
   position: absolute;
   bottom: 24px;
@@ -118,11 +115,10 @@ body {
   font-weight: 800;
   color: #66c0f4;
   text-shadow: 0 3px 12px rgba(0,0,0,0.8);
-  max-width: 80%;
 }
 
 /* =======================
-   SECTION TITLES
+   TITLES
 ======================= */
 .section-title {
   max-width: 1200px;
@@ -134,39 +130,7 @@ body {
 }
 
 /* =======================
-   FEATURED SECTION
-======================= */
-.featured {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 14px;
-  max-width: 1200px;
-  margin: auto;
-  padding: 12px;
-}
-
-.featured-card {
-  background: #1b2838;
-  border-radius: 12px;
-  overflow: hidden;
-  text-decoration: none;
-  color: white;
-}
-
-.featured-card img {
-  width: 100%;
-  aspect-ratio: 16/9;
-  object-fit: cover;
-}
-
-.featured-card div {
-  padding: 12px;
-  font-size: 15px;
-  font-weight: 600;
-}
-
-/* =======================
-   GAME GRID (4 COLUMN IPAD)
+   GAME GRID (USED FOR ALL + FEATURED)
 ======================= */
 .grid {
   display: grid;
@@ -203,15 +167,11 @@ body {
 }
 
 /* =======================
-   IPAD RESPONSIVE
+   IPAD
 ======================= */
 @media (max-width: 900px) {
   .grid {
     grid-template-columns: repeat(2, 1fr);
-  }
-
-  .featured {
-    grid-template-columns: 1fr;
   }
 
   .carousel {
