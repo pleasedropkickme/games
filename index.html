@@ -49,17 +49,17 @@
 
 </div>
 
-<!-- FEATURED -->
+<!-- FEATURED (NOW SAME AS GRID) -->
 <div id="featured" class="section-title">Featured Games</div>
 
-<div class="featured">
+<div class="grid">
 
-  <a class="featured-card" href="play.html?g=game1" data-name="Game One">
+  <a class="game" href="play.html?g=game1" data-name="Game One">
     <img src="assets/testimage.png">
     <div>Game One (NEW)</div>
   </a>
 
-  <a class="featured-card" href="play.html?g=game2" data-name="Game Two">
+  <a class="game" href="play.html?g=game2" data-name="Game Two">
     <img src="assets/testimage.png">
     <div>Game Two</div>
   </a>
@@ -94,9 +94,7 @@
 </div>
 
 <script>
-/* =======================
-   SEARCH (STEAM STYLE FILTER MODE)
-======================= */
+/* SEARCH (Steam-style filter mode) */
 document.getElementById("search").addEventListener("input", e => {
   const val = e.target.value.toLowerCase().trim();
 
@@ -104,20 +102,15 @@ document.getElementById("search").addEventListener("input", e => {
   const featured = document.getElementById("featured");
 
   const games = document.querySelectorAll(".game");
-  const featuredCards = document.querySelectorAll(".featured-card");
 
   if (val === "") {
-    // RESET VIEW
     carousel.style.display = "block";
     featured.style.display = "block";
 
     games.forEach(g => g.style.display = "block");
-    featuredCards.forEach(f => f.style.display = "block");
-
     return;
   }
 
-  // SEARCH MODE (FOCUS ON GAMES ONLY)
   carousel.style.display = "none";
   featured.style.display = "none";
 
@@ -125,17 +118,10 @@ document.getElementById("search").addEventListener("input", e => {
     const name = g.dataset.name.toLowerCase();
     g.style.display = name.includes(val) ? "block" : "none";
   });
-
-  featuredCards.forEach(f => {
-    const name = f.dataset.name.toLowerCase();
-    f.style.display = name.includes(val) ? "block" : "none";
-  });
 });
 
 
-/* =======================
-   CAROUSEL SWITCH
-======================= */
+/* CAROUSEL */
 let i = 0;
 const slides = document.querySelectorAll(".slide");
 
