@@ -144,22 +144,24 @@ document.getElementById("search").addEventListener("input", e => {
   const val = e.target.value.toLowerCase().trim();
 
   const carousel = document.getElementById("carousel");
-  const featured = document.getElementById("featured");
+  const featuredTitle = document.getElementById("featured");
+  const featuredGrid = document.querySelector("#featured + .grid"); // <-- THIS is the fix
 
-  // ONLY select games inside ALL GAMES section
   const allGamesSection = document.querySelector("#games + .grid");
   const games = allGamesSection.querySelectorAll(".game");
 
   if (val === "") {
     carousel.style.display = "block";
-    featured.style.display = "block";
+    featuredTitle.style.display = "block";
+    featuredGrid.style.display = "grid"; // show featured again
 
     games.forEach(g => g.style.display = "block");
     return;
   }
 
   carousel.style.display = "none";
-  featured.style.display = "none";
+  featuredTitle.style.display = "none";
+  featuredGrid.style.display = "none"; // hide ALL featured games
 
   games.forEach(g => {
     const name = g.dataset.name.toLowerCase();
