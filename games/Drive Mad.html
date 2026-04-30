@@ -1,0 +1,42 @@
+<!-- Cleaned minimal embed version (ads/obfuscated script removed) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Basket Bros</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <link rel="shortcut icon" type="image/png" href="./favicon.png" />
+  <script src="https://cdn.jsdelivr.net/gh/genizy/assets@main/basketbros-io/BasketBros.js"></script>
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: #000;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+    }
+    #game {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="game"></div>
+
+  <script>
+    lime.embed("BasketBros", "game", 0, 0, { parameters: {} });
+
+    window.addEventListener("keydown", function(e) {
+      if ([32, 38, 40].includes(e.keyCode)) e.preventDefault();
+    });
+
+    window.addEventListener("touchmove", function(e) {
+      e.preventDefault();
+    }, { passive: false });
+  </script>
+</body>
+</html>
