@@ -8,6 +8,8 @@
 body {
   margin: 0;
   background: black;
+  color: white;
+  font-family: Arial, sans-serif;
 }
 
 iframe {
@@ -15,12 +17,21 @@ iframe {
   height: 100vh;
   border: none;
 }
+
+.error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 24px;
+}
 </style>
 </head>
 
 <body>
 
-<iframe id="frame"></iframe>
+<iframe id="frame" style="display:none;"></iframe>
+<div id="error" class="error" style="display:none;"></div>
 
 <script>
 const params = new URLSearchParams(location.search);
@@ -31,7 +42,7 @@ const db = {
   eaglercraft: "https://example.com/game2",
   geometrydashlite: "https://example.com/game3",
   drivemad: "https://example.com/game4",
-  asmallworldcup: "https://example.com/game5",
+  asmallworkcup: "https://example.com/game5",
   escaperoad3: "https://example.com/game6",
   game1: "https://example.com/game1",
   game2: "https://example.com/game2",
@@ -39,7 +50,16 @@ const db = {
   game4: "https://example.com/game4"
 };
 
-document.getElementById("frame").src = db[game] || "about:blank";
+const frame = document.getElementById("frame");
+const error = document.getElementById("error");
+
+if (db[game]) {
+  frame.src = db[game];
+  frame.style.display = "block";
+} else {
+  error.style.display = "flex";
+  error.innerText = "Game not found: " + game;
+}
 </script>
 
 </body>
