@@ -146,7 +146,9 @@ document.getElementById("search").addEventListener("input", e => {
   const carousel = document.getElementById("carousel");
   const featured = document.getElementById("featured");
 
-  const games = document.querySelectorAll(".game");
+  // ONLY select games inside ALL GAMES section
+  const allGamesSection = document.querySelector("#games + .grid");
+  const games = allGamesSection.querySelectorAll(".game");
 
   if (val === "") {
     carousel.style.display = "block";
