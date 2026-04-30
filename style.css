@@ -61,7 +61,7 @@ body {
 }
 
 /* =======================
-   CAROUSEL (NO BOUNCE)
+   CAROUSEL (FIXED STACK ISSUE)
 ======================= */
 .carousel {
   max-width: 1200px;
@@ -72,16 +72,21 @@ body {
   overflow: hidden;
 }
 
+/* FIX: prevent invisible slides blocking clicks */
 .slide {
   position: absolute;
   inset: 0;
   opacity: 0;
   transition: opacity 0.8s ease;
   text-decoration: none;
+  pointer-events: none; /* IMPORTANT FIX */
+  z-index: 0;
 }
 
 .slide.active {
   opacity: 1;
+  pointer-events: auto; /* ONLY active slide clickable */
+  z-index: 1;
 }
 
 .slide img {
@@ -133,7 +138,7 @@ body {
 }
 
 /* =======================
-   GAME GRID (USED FOR ALL + FEATURED)
+   GAME GRID
 ======================= */
 .grid {
   display: grid;
