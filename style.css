@@ -196,3 +196,30 @@ body {
     width: 170px;
   }
 }
+
+/* =======================
+   ALL GAMES BUTTON
+======================= */
+.allgames-btn {
+  display: block;
+  margin: 40px auto 60px;
+  width: 320px;
+  text-align: center;
+  padding: 14px 20px;
+
+  background: #1a1d24;
+  color: #e6e6e6;
+  font-size: 16px;
+  font-weight: 600;
+
+  border-radius: 10px;
+  border: 1px solid #2a2f38;
+
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.allgames-btn:hover {
+  background: #222733;
+  border-color: #3a4150;
+}
