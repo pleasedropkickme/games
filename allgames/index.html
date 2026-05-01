@@ -58,5 +58,25 @@
 
 </div>
 
+<script>
+const params = new URLSearchParams(window.location.search);
+const search = params.get("search");
+
+if (search) {
+  const val = search.toLowerCase();
+
+  const games = document.querySelectorAll(".game");
+
+  games.forEach(g => {
+    const name = g.innerText.toLowerCase();
+    g.style.display = name.includes(val) ? "block" : "none";
+  });
+
+  // also pre-fill search box
+  const input = document.getElementById("search");
+  if (input) input.value = search;
+}
+</script>
+
 </body>
 </html>
