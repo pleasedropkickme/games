@@ -241,15 +241,36 @@
 <a href="allgames/index.html" class="allgames-btn">ALL GAMES</a>
 
 <script>
-/* SEARCH (REDIRECT TO ALL GAMES) */
+<script>
+
+/* SEARCH (NO data-name, stays on page) */
 document.getElementById("search").addEventListener("input", e => {
   const val = e.target.value.toLowerCase().trim();
 
-  // if empty, do nothing (stay on page)
-  if (val === "") return;
+  const carousel = document.getElementById("carousel");
+  const featuredTitle = document.getElementById("featured");
+  const featuredGrid = document.querySelector("#featured + .grid");
 
-  // redirect to all games page with search term
-  window.location.href = `/allgames/index.html?search=${encodeURIComponent(val)}`;
+  const allGamesSection = document.querySelector("#games + .grid");
+  const games = allGamesSection.querySelectorAll(".game");
+
+  if (val === "") {
+    carousel.style.display = "block";
+    featuredTitle.style.display = "block";
+    featuredGrid.style.display = "grid";
+
+    games.forEach(g => g.style.display = "block");
+    return;
+  }
+
+  carousel.style.display = "none";
+  featuredTitle.style.display = "none";
+  featuredGrid.style.display = "none";
+
+  games.forEach(g => {
+    const name = g.querySelector("div").innerText.toLowerCase();
+    g.style.display = name.includes(val) ? "block" : "none";
+  });
 });
 
 
@@ -265,6 +286,7 @@ function show() {
 
 show();
 setInterval(show, 4000);
+
 </script>
 
 </body>
