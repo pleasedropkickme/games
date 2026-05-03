@@ -1,1 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recents · CARSON SMP GAMES</title>
+<link rel="stylesheet" href="style.css">
+</head>
 
+<body>
+
+<!-- TOP BAR (NO SEARCH) -->
+<div class="topbar">
+
+  <div class="left">
+    <div class="logo">CARSON SMP GAMES</div>
+
+    <div class="nav">
+      <a href="https://pleasedropkickme.github.io/gamesold/">OLD WEBSITE</a>
+      <a href="../index.html">HOME</a>
+      <a href="../updates/index.html">UPDATES (NOT DONE)</a>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- TITLE -->
+<div class="section-title">Recently Played</div>
+
+<!-- RECENTS GRID -->
+<div class="grid" id="recentsGrid"></div>
+
+<script>
+/*
+EXPECTED FORMAT IN LOCALSTORAGE:
+recentGames = [
+  { name: "Poly Track", link: "play.html?g=polytrack", img: "../assets/polytrack.png" }
+]
+*/
+
+const grid = document.getElementById("recentsGrid");
+
+let recents = JSON.parse(localStorage.getItem("recentGames")) || [];
+
+// keep only last 12
+recents = recents.slice(-12).reverse();
+
+if (recents.length === 0) {
+  grid.innerHTML = "<div style='padding:20px; opacity:0.7;'>No recent games yet.</div>";
+} else {
+  recents.forEach(game => {
+    const a = document.createElement("a");
+    a.className = "game";
+    a.href = game.link;
+
+    a.innerHTML = `
+      <img src="${game.img}">
+      <div>${game.name}</div>
+    `;
+
+    grid.appendChild(a);
+  });
+}
+</script>
+
+</body>
+</html>
